@@ -1,0 +1,946 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.frmSchedView..Create(BaseForm)
+Gui.frmSchedView..Caption("Schedule View")
+Gui.frmSchedView..Size(16755,14505)
+Gui.frmSchedView..MinX(0)
+Gui.frmSchedView..MinY(0)
+Gui.frmSchedView..Position(0,0)
+Gui.frmSchedView..FontName("Arial Black")
+Gui.frmSchedView..BackColor(-2147483633)
+Gui.frmSchedView..MousePointer(0)
+Gui.frmSchedView..Event(UnLoad,frmSchedView_UnLoad)
+Gui.frmSchedView..AlwaysOnTop(False)
+Gui.frmSchedView..FontSize(8.25)
+Gui.frmSchedView..ControlBox(True)
+Gui.frmSchedView..MaxButton(True)
+Gui.frmSchedView..MinButton(True)
+Gui.frmSchedView..Moveable(True)
+Gui.frmSchedView..Sizeable(True)
+Gui.frmSchedView..ShowInTaskBar(True)
+Gui.frmSchedView..TitleBar(True)
+Gui.frmSchedView.dtp1.Create(DatePicker)
+Gui.frmSchedView.dtp1.Size(1935,285)
+Gui.frmSchedView.dtp1.Position(1305,105)
+Gui.frmSchedView.dtp1.Enabled(True)
+Gui.frmSchedView.dtp1.Visible(True)
+Gui.frmSchedView.dtp1.Zorder(0)
+Gui.frmSchedView.dtp1.CheckBox(False)
+Gui.frmSchedView.dtp1.FontName("Tahoma")
+Gui.frmSchedView.dtp1.FontSize(8.25)
+Gui.frmSchedView.lbl1.Create(Label,"Week Starting",True,1110,255,0,105,180,True,0,"Arial",8,-2147483633,0,0)
+Gui.frmSchedView.lbl1.BorderStyle(0)
+Gui.frmSchedView.cmdProcess.Create(Button)
+Gui.frmSchedView.cmdProcess.Size(855,375)
+Gui.frmSchedView.cmdProcess.Position(10440,75)
+Gui.frmSchedView.cmdProcess.Caption("Process")
+Gui.frmSchedView.cmdProcess.Event(Click,cmdProcess_Click)
+Gui.frmSchedView.cmdProcess.Enabled(True)
+Gui.frmSchedView.cmdProcess.Visible(True)
+Gui.frmSchedView.cmdProcess.Zorder(0)
+Gui.frmSchedView.cmdProcess.FontName("Tahoma")
+Gui.frmSchedView.cmdProcess.FontSize(8.25)
+Gui.frmSchedView.gsgcThisWk.Create(GsGridControl)
+Gui.frmSchedView.gsgcThisWk.Size(16410,2955)
+Gui.frmSchedView.gsgcThisWk.Position(90,525)
+Gui.frmSchedView.gsgcThisWk.Enabled(True)
+Gui.frmSchedView.gsgcThisWk.Visible(True)
+Gui.frmSchedView.gsgcThisWk.Zorder(0)
+Gui.frmSchedView.gsgcThisWk.Event(RowCellClick,gsgcThisWk_RowCellClick)
+Gui.frmSchedView.txtWG.Create(TextBox,"",True,750,300,0,3345,120,True,0,"Arial",8,-2147483643,1)
+Gui.frmSchedView.cmdBrowseWG.Create(Button)
+Gui.frmSchedView.cmdBrowseWG.Size(555,375)
+Gui.frmSchedView.cmdBrowseWG.Position(4125,75)
+Gui.frmSchedView.cmdBrowseWG.Caption("^")
+Gui.frmSchedView.cmdBrowseWG.Event(Click,cmdBrowseWG_Click)
+Gui.frmSchedView.cmdBrowseWG.Enabled(True)
+Gui.frmSchedView.cmdBrowseWG.Visible(True)
+Gui.frmSchedView.cmdBrowseWG.Zorder(0)
+Gui.frmSchedView.cmdBrowseWG.FontName("Tahoma")
+Gui.frmSchedView.cmdBrowseWG.FontSize(8.25)
+Gui.frmSchedView.gsgcNextWk.Create(GsGridControl)
+Gui.frmSchedView.gsgcNextWk.Size(16410,2805)
+Gui.frmSchedView.gsgcNextWk.Position(105,3825)
+Gui.frmSchedView.gsgcNextWk.Enabled(True)
+Gui.frmSchedView.gsgcNextWk.Visible(True)
+Gui.frmSchedView.gsgcNextWk.Zorder(0)
+Gui.frmSchedView.gsgcNextWk.Event(RowCellClick,gsgcNextWk_RowCellClick)
+Gui.frmSchedView.gsgcFollowWk.Create(GsGridControl)
+Gui.frmSchedView.gsgcFollowWk.Size(16410,3090)
+Gui.frmSchedView.gsgcFollowWk.Position(135,7035)
+Gui.frmSchedView.gsgcFollowWk.Enabled(True)
+Gui.frmSchedView.gsgcFollowWk.Visible(True)
+Gui.frmSchedView.gsgcFollowWk.Zorder(0)
+Gui.frmSchedView.gsgcFollowWk.Event(RowCellClick,gsgcFollowWk_RowCellClick)
+Gui.frmSchedView.lbl2.Create(Label,"Next Week",True,780,210,0,150,3555,True,0,"Arial",8,-2147483633,0,0)
+Gui.frmSchedView.lbl2.BorderStyle(0)
+Gui.frmSchedView.lbl3.Create(Label,"Following Week",True,1140,210,0,135,6720,True,0,"Arial",8,-2147483633,0,0)
+Gui.frmSchedView.lbl3.BorderStyle(0)
+Gui.frmSchedView.lblNextWeek.Create(Label,"",True,15,210,0,1185,3555,True,0,"Arial",8,-2147483633,0,0)
+Gui.frmSchedView.lblNextWeek.BorderStyle(0)
+Gui.frmSchedView.lblFollowingWeek.Create(Label,"",True,15,210,0,1440,6720,True,0,"Arial",8,-2147483633,0,0)
+Gui.frmSchedView.lblFollowingWeek.BorderStyle(0)
+Gui.frmSchedView.optView.Create(Option)
+Gui.frmSchedView.optView.Enabled(True)
+Gui.frmSchedView.optView.Visible(True)
+Gui.frmSchedView.optView.Zorder(0)
+Gui.frmSchedView.optView.Size(855,360)
+Gui.frmSchedView.optView.Position(12630,90)
+Gui.frmSchedView.optView.Caption("View")
+Gui.frmSchedView.optView.FontName("Tahoma")
+Gui.frmSchedView.optView.FontSize(8.25)
+Gui.frmSchedView.optView.Value(True)
+Gui.frmSchedView.optEdit.Create(Option)
+Gui.frmSchedView.optEdit.Enabled(True)
+Gui.frmSchedView.optEdit.Visible(True)
+Gui.frmSchedView.optEdit.Zorder(0)
+Gui.frmSchedView.optEdit.Size(1140,360)
+Gui.frmSchedView.optEdit.Position(13485,90)
+Gui.frmSchedView.optEdit.Caption("Edit")
+Gui.frmSchedView.optEdit.FontName("Tahoma")
+Gui.frmSchedView.optEdit.FontSize(8.25)
+Gui.frmSchedView.txtWG2.Create(TextBox,"",True,705,300,0,4755,120,True,0,"Tahoma",8.25,,1)
+Gui.frmSchedView.cmdWG2.Create(Button)
+Gui.frmSchedView.cmdWG2.Enabled(True)
+Gui.frmSchedView.cmdWG2.Visible(True)
+Gui.frmSchedView.cmdWG2.Zorder(0)
+Gui.frmSchedView.cmdWG2.Size(600,345)
+Gui.frmSchedView.cmdWG2.Position(5520,90)
+Gui.frmSchedView.cmdWG2.Caption("^")
+Gui.frmSchedView.cmdWG2.FontName("Tahoma")
+Gui.frmSchedView.cmdWG2.FontSize(8.25)
+Gui.frmSchedView.cmdWG2.Event(Click,cmdWG2_Click)
+Gui.frmSchedView.txtWG3.Create(TextBox,"",True,750,300,0,6255,135,True,0,"Tahoma",8.25,,1)
+Gui.frmSchedView.cmdWG3.Create(Button)
+Gui.frmSchedView.cmdWG3.Enabled(True)
+Gui.frmSchedView.cmdWG3.Visible(True)
+Gui.frmSchedView.cmdWG3.Zorder(0)
+Gui.frmSchedView.cmdWG3.Size(600,345)
+Gui.frmSchedView.cmdWG3.Position(7065,105)
+Gui.frmSchedView.cmdWG3.Caption("^")
+Gui.frmSchedView.cmdWG3.FontName("Tahoma")
+Gui.frmSchedView.cmdWG3.FontSize(8.25)
+Gui.frmSchedView.cmdWG3.Event(Click,cmdWG3_Click)
+Gui.frmSchedView.txtWG4.Create(TextBox,"",True,735,300,0,7815,120,True,0,"Tahoma",8.25,,1)
+Gui.frmSchedView.cmdWG4.Create(Button)
+Gui.frmSchedView.cmdWG4.Enabled(True)
+Gui.frmSchedView.cmdWG4.Visible(True)
+Gui.frmSchedView.cmdWG4.Zorder(0)
+Gui.frmSchedView.cmdWG4.Size(600,345)
+Gui.frmSchedView.cmdWG4.Position(8625,90)
+Gui.frmSchedView.cmdWG4.Caption("^")
+Gui.frmSchedView.cmdWG4.FontName("Tahoma")
+Gui.frmSchedView.cmdWG4.FontSize(8.25)
+Gui.frmSchedView.cmdWG4.Event(Click,cmdWG4_Click)
+Gui.frmSchedView.cmdExport.Create(Button)
+Gui.frmSchedView.cmdExport.Enabled(True)
+Gui.frmSchedView.cmdExport.Visible(True)
+Gui.frmSchedView.cmdExport.Zorder(0)
+Gui.frmSchedView.cmdExport.Size(855,375)
+Gui.frmSchedView.cmdExport.Position(11430,75)
+Gui.frmSchedView.cmdExport.Caption("Export")
+Gui.frmSchedView.cmdExport.FontName("Tahoma")
+Gui.frmSchedView.cmdExport.FontSize(8.25)
+Gui.frmSchedView.cmdExport.Event(Click,cmdExport_Click)
+Gui.frmSchedView.lbl4.Create(Label,"Week 4",True,540,210,0,180,10260,True,0,"Arial",8,-2147483633,0,0)
+Gui.frmSchedView.lbl4.BorderStyle(0)
+Gui.frmSchedView.gsgcWeek4.Create(GsGridControl)
+Gui.frmSchedView.gsgcWeek4.Enabled(True)
+Gui.frmSchedView.gsgcWeek4.Visible(True)
+Gui.frmSchedView.gsgcWeek4.Zorder(0)
+Gui.frmSchedView.gsgcWeek4.Size(16410,3090)
+Gui.frmSchedView.gsgcWeek4.Position(135,10545)
+Gui.frmSchedView.gsgcWeek4.Event(RowCellClick,gsgcWeek4_RowCellClick)
+Gui.frmSchedView.lblWeek4.Create(Label,"",True,15,210,0,1080,10245,True,0,"Arial",8,-2147483633,0,0)
+Gui.frmSchedView.lblWeek4.BorderStyle(0)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+f.ODBC.Connection!con.opencompanyconnection(90)
+f.Intrinsic.Control.CallSub(loadDataTables)
+f.Intrinsic.Control.CallSub(setProperties)
+gui.frmSchedView..Show
+Program.Sub.Main.End
+
+Program.Sub.loadDataTables.Start
+f.Intrinsic.Control.Try
+	f.Data.DataTable.Create("dtData",true)
+	f.Data.DataTable.AddColumn("dtData","Job","string")
+	f.Data.DataTable.AddColumn("dtData","Sfx","string")
+	f.Data.DataTable.AddColumn("dtData","Seq","integer")
+	f.Data.DataTable.AddColumn("dtData","SALES_ORDER","string")
+	f.Data.DataTable.AddColumn("dtData","SALES_ORDER_LINE","string")
+	f.Data.DataTable.AddColumn("dtData","JS","string")
+	f.Data.DataTable.AddColumn("dtData","JSS","string")
+	f.Data.DataTable.AddColumn("dtData","Part","string")
+	f.Data.DataTable.AddColumn("dtData","Description","string")
+	f.Data.DataTable.AddColumn("dtData","Customer","string")
+	f.Data.DataTable.AddColumn("dtData","Name_Customer","string")
+	f.Data.DataTable.AddColumn("dtData","WC","string")
+	f.Data.DataTable.AddColumn("dtData","WCFact","string")
+	f.Data.DataTable.AddColumn("dtData","Priority","string")
+	f.Data.DataTable.AddColumn("dtData","ActualHrs","Float")
+	f.Data.DataTable.AddColumn("dtData","Cost","Float")
+	f.Data.DataTable.AddColumn("dtData","Sell","Float")
+	f.Data.DataTable.AddColumn("dtData","DueDate","date")
+	f.Data.DataTable.AddColumn("dtData","DueDateOp","date")
+	f.Data.DataTable.AddColumn("dtData","SchedHrs","Float")
+	f.Data.DataTable.AddColumn("dtData","TotalHrs","Float")
+	
+	f.Data.DataTable.Create("dtData2",true)
+	f.Data.DataTable.AddColumn("dtData2","Job","string")
+	f.Data.DataTable.AddColumn("dtData2","Sfx","string")
+	f.Data.DataTable.AddColumn("dtData2","Seq","integer")
+	f.Data.DataTable.AddColumn("dtData2","SALES_ORDER","string")
+	f.Data.DataTable.AddColumn("dtData2","SALES_ORDER_LINE","string")
+	f.Data.DataTable.AddColumn("dtData2","JS","string")
+	f.Data.DataTable.AddColumn("dtData2","JSS","string")
+	f.Data.DataTable.AddColumn("dtData2","Part","string")
+	f.Data.DataTable.AddColumn("dtData2","Description","string")
+	f.Data.DataTable.AddColumn("dtData2","Customer","string")
+	f.Data.DataTable.AddColumn("dtData2","Name_Customer","string")
+	f.Data.DataTable.AddColumn("dtData2","WC","string")
+	f.Data.DataTable.AddColumn("dtData2","WCFact","string")
+	f.Data.DataTable.AddColumn("dtData2","Priority","string")
+	f.Data.DataTable.AddColumn("dtData2","ActualHrs","Float")
+	f.Data.DataTable.AddColumn("dtData2","Cost","Float")
+	f.Data.DataTable.AddColumn("dtData2","Sell","Float")
+	f.Data.DataTable.AddColumn("dtData2","DueDate","date")
+	f.Data.DataTable.AddColumn("dtData2","DueDateOp","date")
+	f.Data.DataTable.AddColumn("dtData2","SchedHrs","Float")
+	f.Data.DataTable.AddColumn("dtData2","TotalHrs","Float")
+	
+	f.Data.DataTable.Create("dtData3",true)
+	f.Data.DataTable.AddColumn("dtData3","Job","string")
+	f.Data.DataTable.AddColumn("dtData3","Sfx","string")
+	f.Data.DataTable.AddColumn("dtData3","Seq","integer")
+	f.Data.DataTable.AddColumn("dtData3","SALES_ORDER","string")
+	f.Data.DataTable.AddColumn("dtData3","SALES_ORDER_LINE","string")
+	f.Data.DataTable.AddColumn("dtData3","JS","string")
+	f.Data.DataTable.AddColumn("dtData3","JSS","string")
+	f.Data.DataTable.AddColumn("dtData3","Part","string")
+	f.Data.DataTable.AddColumn("dtData3","Description","string")
+	f.Data.DataTable.AddColumn("dtData3","Customer","string")
+	f.Data.DataTable.AddColumn("dtData3","Name_Customer","string")
+	f.Data.DataTable.AddColumn("dtData3","WC","string")
+	f.Data.DataTable.AddColumn("dtData3","WCFact","string")
+	f.Data.DataTable.AddColumn("dtData3","Priority","string")
+	f.Data.DataTable.AddColumn("dtData3","ActualHrs","Float")
+	f.Data.DataTable.AddColumn("dtData3","Cost","Float")
+	f.Data.DataTable.AddColumn("dtData3","Sell","Float")
+	f.Data.DataTable.AddColumn("dtData3","DueDate","date")
+	f.Data.DataTable.AddColumn("dtData3","DueDateOp","date")
+	f.Data.DataTable.AddColumn("dtData3","SchedHrs","Float")
+	f.Data.DataTable.AddColumn("dtData3","TotalHrs","Float")
+	
+	f.Data.DataTable.Create("dtData4",true)
+	f.Data.DataTable.AddColumn("dtData4","Job","string")
+	f.Data.DataTable.AddColumn("dtData4","Sfx","string")
+	f.Data.DataTable.AddColumn("dtData4","Seq","integer")
+	f.Data.DataTable.AddColumn("dtData4","SALES_ORDER","string")
+	f.Data.DataTable.AddColumn("dtData4","SALES_ORDER_LINE","string")
+	f.Data.DataTable.AddColumn("dtData4","JS","string")
+	f.Data.DataTable.AddColumn("dtData4","JSS","string")
+	f.Data.DataTable.AddColumn("dtData4","Part","string")
+	f.Data.DataTable.AddColumn("dtData4","Description","string")
+	f.Data.DataTable.AddColumn("dtData4","Customer","string")
+	f.Data.DataTable.AddColumn("dtData4","Name_Customer","string")
+	f.Data.DataTable.AddColumn("dtData4","WC","string")
+	f.Data.DataTable.AddColumn("dtData4","WCFact","string")
+	f.Data.DataTable.AddColumn("dtData4","Priority","string")
+	f.Data.DataTable.AddColumn("dtData4","ActualHrs","Float")
+	f.Data.DataTable.AddColumn("dtData4","Cost","Float")
+	f.Data.DataTable.AddColumn("dtData4","Sell","Float")
+	f.Data.DataTable.AddColumn("dtData4","DueDate","date")
+	f.Data.DataTable.AddColumn("dtData4","DueDateOp","date")
+	f.Data.DataTable.AddColumn("dtData4","SchedHrs","Float")
+	f.Data.DataTable.AddColumn("dtData4","TotalHrs","Float")
+	
+	gui.frmSchedView.gsgcThisWk.DataSource("dtData")
+	gui.frmSchedView.gsgcThisWk.AddGridviewFromDatatable("gvData","dtData")
+	
+	gui.frmSchedView.gsgcNextWk.DataSource("dtData2")
+	gui.frmSchedView.gsgcNextWk.AddGridviewFromDatatable("gvData2","dtData2")
+	
+	gui.frmSchedView.gsgcFollowWk.DataSource("dtData3")
+	gui.frmSchedView.gsgcFollowWk.AddGridviewFromDatatable("gvData3","dtData3")
+	
+	gui.frmSchedView.gsgcWeek4.DataSource("dtData4")
+	gui.frmSchedView.gsgcWeek4.AddGridviewFromDatatable("gvData4","dtData4")
+	
+f.Intrinsic.Control.Catch
+	F.Intrinsic.UI.Msgbox(V.Ambient.ErrorDescription)
+	F.Intrinsic.Control.CallSub(frmSchedView_UnLoad)
+f.Intrinsic.Control.EndTry
+Program.Sub.loadDataTables.End
+
+Program.Sub.loadData.Start
+f.Intrinsic.Control.Try
+	v.Local.sSql.Declare
+	V.Local.sWorkGroup.Declare
+	V.Local.sWorkGroup2.Declare
+	V.Local.sWorkGroup3.Declare
+	V.Local.sWorkGroup4.Declare
+	v.Local.sJSS.declare
+	v.Local.sJob.Declare
+	v.Local.sSfx.Declare
+	v.Local.sSeq.Declare
+	v.Local.sRet.declare
+	v.Local.sDT.Declare
+	v.Local.sDateCaption.Declare
+	v.Local.sWC.Declare
+	v.Local.sWCFact.Declare
+	v.Local.sSOHead.Declare
+	v.Local.sSOLine.Declare
+	v.Local.sDueDate.Declare
+	v.Local.dDateBegin.Declare
+	v.Local.dDateEnd.Declare
+	v.Local.dDateDue.Declare
+	v.Local.dDateDueOp.Declare
+	v.Local.fSchedHours.Declare
+	V.Local.fTotalHours.Declare
+	v.Local.fSchedActHrs.Declare
+	v.Local.fActualHours.Declare
+	v.Local.fBill.Declare
+	v.Local.fSell.Declare
+	v.Local.fCost.Declare
+	v.Local.i.Declare
+	
+	v.Local.sDT.Set(v.Args.MyDataTable)
+	v.Local.dDateBegin.Set(v.Args.BeginDate)
+	v.Local.dDateEnd.Set(v.Args.EndDate)
+	v.Local.sWorkGroup.Set(v.Screen.frmSchedView!txtWG.text)
+	v.Local.sWorkGroup2.Set(v.Screen.frmSchedView!txtWG2.text)
+	v.Local.sWorkGroup3.Set(v.Screen.frmSchedView!txtWG3.text)
+	v.Local.sWorkGroup4.Set(v.Screen.frmSchedView!txtWG4.text)
+	
+	v.Local.sShortDateBegin.Declare
+	v.Local.sShortDateEnd.Declare
+	f.Intrinsic.String.Format(v.Local.dDateBegin,"DD/MM/YYYY",v.Local.sShortDateBegin)
+	f.Intrinsic.String.Format(v.Local.dDateEnd,"DD/MM/YYYY",v.Local.sShortDateEnd)
+	
+	'Set captions
+	f.Intrinsic.Control.If(v.Local.sDT,=,"dtData2")
+		f.Intrinsic.String.Concat("From ",v.Local.sShortDateBegin," to ",v.Local.sShortDateEnd,v.Local.sDateCaption)
+		gui.frmSchedView.lblNextWeek.Caption(v.Local.sDateCaption)
+	f.Intrinsic.Control.ElseIf(v.Local.sDT,=,"dtData3")
+		f.Intrinsic.String.Concat("From ",v.Local.sShortDateBegin," to ",v.Local.sShortDateEnd,v.Local.sDateCaption)
+		gui.frmSchedView.lblFollowingWeek.Caption(v.Local.sDateCaption)
+	f.Intrinsic.Control.ElseIf(v.Local.sDT,=,"dtData4")
+		f.Intrinsic.String.Concat("From ",v.Local.sShortDateBegin," to ",v.Local.sShortDateEnd,v.Local.sDateCaption)
+		gui.frmSchedView.lblWeek4.Caption(v.Local.sDateCaption)
+	f.Intrinsic.Control.EndIf
+	
+	'Pull all the jobs scheduled for that week's range
+	f.Intrinsic.Control.If(v.DataTable.dtDataTemp.Exists)
+		f.Data.DataTable.Close("dtDataTemp")
+	f.Intrinsic.Control.EndIf
+	f.Data.DataTable.DeleteRow(v.Local.sDT)
+	F.Intrinsic.String.Build("SELECT DISTINCT JOB, SFX, SEQ, ' ' AS 'SALES_ORDER', ' ' AS 'SALES_ORDER_LINE', JS, JSS FROM APSV3_UBDETAIL WHERE (RST='{0}' or rst='{3}' or rst='{4}' or rst='{5}') AND BTM>='{1}' AND ETM<='{2}'",V.local.sWorkGroup,v.Local.dDateBegin.PervasiveDate,v.Local.dDateEnd.PervasiveDate,v.Local.sWorkGroup2,v.Local.sWorkGroup3,v.Local.sWorkGroup4,v.Local.ssql)
+	f.Data.DataTable.CreateFromSQL("dtDataTemp","con",v.Local.sSql,true)
+	f.Data.DataTable.AddColumn("dtDataTemp","Part","string")
+	f.Data.DataTable.AddColumn("dtDataTemp","Description","string")
+	f.Data.DataTable.AddColumn("dtDataTemp","DueDate","date")
+	f.Data.DataTable.AddColumn("dtDataTemp","Customer","string")
+	f.Data.DataTable.AddColumn("dtDataTemp","Name_Customer","string")
+	f.Data.DataTable.AddColumn("dtDataTemp","Priority","string")
+	f.Data.DataTable.AddColumn("dtDataTemp","SchedHrs","Float")
+	f.Data.DataTable.AddColumn("dtDataTemp","TotalHrs","Float")
+	
+	'Fill in the other data, part, description, due date
+	f.Data.DataTable.CreateFromSQL("dtMaster","con","SELECT CONCAT(JOB,SUFFIX) AS JS, PART, DESCRIPTION, CUSTOMER, DATE_DUE AS 'DUEDATE', PRIORITY, SALES_ORDER, SALES_ORDER_LINE FROM V_JOB_HEADER")
+
+	f.Data.Dictionary.createfromdatatable("dJSPart","dtMaster","JS","Part")
+	f.Data.Dictionary.createfromdatatable("dJSDesc","dtMaster","JS","DESCRIPTION")
+	f.Data.Dictionary.createfromdatatable("dJSCust","dtMaster","JS","CUSTOMER")
+	f.Data.Dictionary.createfromdatatable("dJSPrio","dtMaster","JS","PRIORITY")
+	f.Data.Dictionary.createfromdatatable("dJSSOH","dtMaster","JS","SALES_ORDER")
+	f.Data.Dictionary.createfromdatatable("dJSSOL","dtMaster","JS","SALES_ORDER_LINE") 
+	F.Data.Dictionary.CreateFromSQL("dOrders","con","SELECT CONCAT(ORDER_NO,RECORD_NO) as 'OrderNo', DATE_ITEM_PROM as 'DUEDATE' FROM V_ORDER_LINES")
+	F.Data.Dictionary.CreateFromSQL("dCustomer","con","SELECT CUSTOMER, NAME_CUSTOMER FROM V_CUSTOMER_MASTER")
+	f.Data.Dictionary.SetDefaultReturn("dOrders","1/1/1900")
+	f.Data.Dictionary.SetDefaultReturn("dJSPart","")
+	f.Data.Dictionary.SetDefaultReturn("dJSDesc","")
+	f.Data.Dictionary.SetDefaultReturn("dJSPrio","")
+	f.Data.Dictionary.SetDefaultReturn("dJSCust","")
+	f.Data.Dictionary.SetDefaultReturn("dCustomer","")
+	f.Data.DataTable.FillFromDictionary("dtDataTemp","dJSPart","JS","PART")
+	f.Data.DataTable.FillFromDictionary("dtDataTemp","dJSDesc","JS","DESCRIPTION")
+	f.Data.DataTable.FillFromDictionary("dtDataTemp","dJSPart","JS","PART")
+	f.Data.DataTable.FillFromDictionary("dtDataTemp","dJSCust","JS","CUSTOMER")
+	f.Data.DataTable.FillFromDictionary("dtDataTemp","dJSPrio","JS","PRIORITY")
+	f.Data.DataTable.FillFromDictionary("dtDataTemp","dJSSOH","JS","SALES_ORDER")
+	f.Data.DataTable.FillFromDictionary("dtDataTemp","dJSSOL","JS","SALES_ORDER_LINE")
+	f.Data.DataTable.AddExpressionColumn("dtDataTemp","OrderNo","String","SALES_ORDER + SALES_ORDER_LINE + 0")
+	f.Data.DataTable.FillFromDictionary("dtDataTemp","dOrders","OrderNo","DueDate")
+	f.Data.DataTable.FillFromDictionary("dtDataTemp","dCustomer","CUSTOMER","Name_Customer")
+	f.Data.Dictionary.Close("dJSPart")
+	f.Data.Dictionary.Close("dJSDesc")
+	f.Data.Dictionary.Close("dJSPrio")
+	f.Data.Dictionary.Close("dJSCust")
+	f.Data.Dictionary.Close("dJSSOH")
+	f.Data.Dictionary.Close("dJSSOL")
+	f.Data.Dictionary.Close("dOrders")
+	f.Data.Dictionary.Close("dCustomer")
+	f.Data.DataTable.Close("dtMaster")
+		
+	f.Data.DataTable.Merge("dtDataTemp",v.Local.sDT,False,1)
+	
+	'Loop through each job to find the total hours for a week + anything beyond
+	f.Intrinsic.Control.For(v.Local.i,0,v.DataTable.[v.Local.sDT].RowCount--,1)
+		f.Intrinsic.Control.If(v.DataTable.[v.Local.sDT](v.Local.i).RowState,<>,8)
+			v.Local.sJSS.Set(v.DataTable.[v.Local.sDT](v.Local.i).JSS!fieldval)
+			v.Local.sJob.Set(v.DataTable.[v.Local.sDT](v.Local.i).Job!fieldval)
+			v.Local.sSfx.Set(v.DataTable.[v.Local.sDT](v.Local.i).Sfx!fieldval)
+			v.Local.sSeq.Set(v.DataTable.[v.Local.sDT](v.Local.i).Seq!fieldval)
+			f.Intrinsic.String.LPad(v.Local.sSeq,"0",6,v.Local.sSeq)
+			
+			'Get the hours scheduld for the week
+			f.Intrinsic.String.Build("SELECT SUM(OBT) AS 'SchedHrs' FROM APSV3_UBDETAIL WHERE JSS='{0}' AND BDATE>='{1}' AND BDATE<='{2}'",v.Local.sJSS,v.Local.dDateBegin.PervasiveDate,v.Local.dDateEnd.PervasiveDate,v.Local.sSql)
+			f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.fSchedHours)
+			
+			'Get the remaining hours after this week for the whole job
+			f.Intrinsic.String.Build("SELECT SUM(OBT) AS 'TotalHrs' FROM APSV3_UBDETAIL WHERE Job='{0}' and SFX='{1}' AND BDATE>'{2}'",v.Local.sJob,v.Local.sSfx,v.Local.dDateEnd.PervasiveDate,v.Local.sSql)
+			f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.fTotalHours)
+			
+			'Get the actual hours for the sequence
+			f.Intrinsic.String.Build("SELECT SeqRes, NoMach, HoursAppl, duedate FROM APSV3_JBLines WHERE JSS='{0}'",v.Local.sJSS,v.Local.sSql)
+			f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.sRet)
+			f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet)
+			v.Local.sWC.Set(v.Local.sRet(0))
+			v.Local.sWCFact.Set(v.Local.sRet(1))
+			v.Local.fActualHours.Set(v.Local.sRet(2))
+			v.Local.dDateDueOp.Set(v.Local.sRet(3))
+			
+			'Get the workcentre
+			f.Intrinsic.String.Build("SELECT DISTINCT SAR FROM APSV3_UBDetail where JSS='{0}'",V.Local.sJss,v.Local.sSql)
+			f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.sWC)
+			F.Intrinsic.String.Replace(v.Local.sWC,"#$#",",",v.Local.sWC)
+			
+			'Get the cost
+			f.Intrinsic.String.Build("SELECT DOLLARS_ACTUAL FROM JOB_OPERATIONS WHERE JOB='{0}' AND SUFFIX='{1}' AND SEQ='{2}'",v.Local.sJob,v.Local.sSfx,v.Local.sSeq,v.Local.sSql)
+			f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.fCost)
+			
+			'Get the sell
+			f.Intrinsic.String.Build("SELECT STANDARD_BILL FROM WORKCENTERS WHERE MACHINE='{0}'",V.Local.sWC,v.Local.sSql)
+			f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSql,v.Local.fBill)
+			f.Intrinsic.Math.Add(v.Local.fActualHours,v.Local.fSchedHours,v.Local.fSchedActHrs)
+			f.Intrinsic.Math.Mult(v.Local.fBill,v.Local.fSchedActHrs,v.Local.fSell)
+			
+			f.Data.DataTable.SetValue(v.Local.sDT,v.Local.i,"DueDateOp",V.Local.dDateDueOp)
+			f.Data.DataTable.SetValue(v.Local.sDT,v.Local.i,"Sell",V.Local.fSell)
+			f.Data.DataTable.SetValue(v.Local.sDT,v.Local.i,"Cost",V.Local.fCost)
+			f.Data.DataTable.SetValue(v.Local.sDT,v.Local.i,"WC",V.Local.sWC.Trim)
+			f.Data.DataTable.SetValue(v.Local.sDT,v.Local.i,"WCFact",v.Local.sWCFact)
+			F.Data.DataTable.SetValue(v.Local.sDT,v.Local.i,"ActualHrs",v.Local.fActualHours)
+			F.Data.DataTable.SetValue(v.Local.sDT,v.Local.i,"SchedHrs",v.Local.fSchedHours)
+			F.Data.DataTable.SetValue(v.Local.sDT,v.Local.i,"TotalHrs",v.Local.fTotalHours)
+			
+		f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.Next(v.Local.i)
+f.Intrinsic.Control.Catch
+	F.Intrinsic.UI.Msgbox(V.Ambient.ErrorDescription)
+	F.Intrinsic.Control.CallSub(frmSchedView_UnLoad)
+f.Intrinsic.Control.EndTry
+Program.Sub.loadData.End
+
+Program.Sub.setProperties.Start
+f.Intrinsic.Control.Try
+	v.Local.sGVData.Declare
+	v.Local.sGridControl.Declare
+	v.Local.i.Declare
+	
+	f.Intrinsic.Control.For(v.Local.i,1,4,1)
+		f.Intrinsic.Control.if(v.Local.i,=,1)
+			v.Local.sGVData.Set("gvData")
+			v.Local.sGridControl.Set("gsgcThisWk")
+		f.Intrinsic.Control.ElseIf(v.Local.i,=,2)
+			v.Local.sGVData.Set("gvData2")
+			v.Local.sGridControl.Set("gsgcNextWk")
+		f.Intrinsic.Control.ElseIf(v.Local.i,=,3)
+			v.Local.sGVData.Set("gvData3")
+			v.Local.sGridControl.Set("gsgcFollowWk")
+		f.Intrinsic.Control.ElseIf(v.Local.i,=,4)
+			v.Local.sGVData.Set("gvData4")
+			v.Local.sGridControl.Set("gsgcWeek4")
+		f.Intrinsic.Control.EndIf
+		
+		gui.frmSchedView.[v.Local.sGridControl].SetGridviewProperty(v.Local.sGVData,"OptionsViewShowGroupPanel",true)
+		
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Part","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DESCRIPTION","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DUEDATE","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"JOB","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SFX","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SEQ","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SchedHrs","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"TotalHrs","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Customer","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Name_Customer","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"WC","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"WCFact","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Priority","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"ActualHrs","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Cost","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sell","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sales_Order","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sales_Order_Line","HeaderFontBold","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DUEDATEOP","HeaderFontBold","True")
+		
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Part","Caption","Part")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DESCRIPTION","Caption","Description")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DUEDATE","Caption","SO Due Date")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"JOB","Caption","Job")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SFX","Caption","Suffix")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SEQ","Caption","Sequence")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SchedHrs","Caption","Sched. Hrs.")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"TotalHrs","Caption","Total Rem. Hrs. (Job)")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Customer","Caption","Customer")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Name_Customer","Caption","Name Customer")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"WC","Caption","WC")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"WCFact","Caption","WC Factor")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Priority","Caption","Priority")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"ActualHrs","Caption","Actual Hours")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Cost","Caption","Cost Actual")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sell","Caption","Sell Est.")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sales_order","Caption","Sales Order")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sales_order_Line","Caption","SO Line#")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DUEDATEOP","Caption","Op. Due Date")
+		
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Part","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DESCRIPTION","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DUEDATE","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"JOB","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SFX","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SEQ","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SchedHrs","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"TotalHrs","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Customer","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Name_Customer","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"WC","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"WCFact","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Priority","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"ActualHrs","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Cost","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sell","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sales_order","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sales_order_Line","HeaderHAlignment","Center")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DUEDATEOP","HeaderHAlignment","Center")
+		
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Part","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DESCRIPTION","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DUEDATE","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"JOB","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SFX","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SEQ","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SchedHrs","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"TotalHrs","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Customer","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Name_Customer","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"WC","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"WCFact","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Priority","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"ActualHrs","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Cost","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sell","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sales_order","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sales_order_Line","ReadOnly","True")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DUEDATEOP","ReadOnly","True")
+		
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Part","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DESCRIPTION","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DUEDATE","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"JOB","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SFX","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SEQ","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SchedHrs","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"TotalHrs","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Customer","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Name_Customer","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"WC","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"WCFact","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Priority","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"ActualHrs","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Cost","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sell","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sales_order","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sales_order_Line","AllowEdit","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DUEDATEOP","AllowEdit","False")
+		
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Part","Width",100)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DESCRIPTION","Width",200)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DUEDATE","Width",50)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"JOB","Width",50)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SFX","Width",25)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SEQ","Width",50)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SchedHrs","Width",75)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"TotalHrs","Width",75)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Customer","Width",75)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Name_Customer","Width",175)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"WC","Width",40)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"WCFact","Width",20)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Priority","Width",30)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"ActualHrs","Width",75)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Cost","Width",75)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sell","Width",75)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sales_order","Width",75)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sales_order_Line","Width",75)
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DUEDATEOP","Width",50)
+		
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Job","CellForeColor","Blue")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SFX","CellForecolor","Blue")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sales_order","CellForecolor","Blue")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sales_order_Line","CellForecolor","Blue")
+		
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DueDate","DisplayCustomDatetime","d")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"DUEDATEOP","DisplayCustomDatetime","d")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"SchedHrs","DisplayCustomnumeric","#,###.00")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"TotalHrs","DisplayCustomnumeric","#,###.00")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"ActualHrs","DisplayCustomnumeric","#,###.00")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Cost","DisplayCustomnumeric","$###,###.00")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sell","DisplayCustomnumeric","$###,###.00")
+		
+		gui.frmSchedView.[v.local.sGridControl].AddSummaryItem(v.Local.sGVData, "SchedHrs","SUM_SchedHrs","Sum","","","n")
+		gui.frmSchedView.[v.local.sGridControl].AddSummaryItem(v.Local.sGVData, "TotalHrs","SUM_TotalHrs","Sum","","","n")
+		
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"JS","Visible","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"JSS","Visible","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Sell","Visible","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Cost","Visible","False")
+		gui.frmSchedView.[v.local.sGridControl].SetColumnProperty(v.Local.sGVData,"Customer","Visible","False")
+	
+	f.Intrinsic.Control.Next(v.Local.i)
+	
+	'0=None
+	'1=Top
+	'2=Bottom
+	'4=Left
+	'8=Right
+	gui.frmSchedView.gsgcThisWk.anchor(13)
+	gui.frmSchedView.gsgcNextWk.anchor(13)
+	gui.frmSchedView.gsgcFollowWk.anchor(13)
+	gui.frmSchedView.gsgcWeek4.Anchor(13)
+	
+f.Intrinsic.Control.Catch
+	F.Intrinsic.UI.Msgbox(V.Ambient.ErrorDescription)
+	F.Intrinsic.Control.CallSub(frmSchedView_UnLoad)
+f.Intrinsic.Control.EndTry
+Program.Sub.setProperties.End
+
+Program.Sub.frmSchedView_UnLoad.Start
+f.ODBC.Connection!con.Close
+f.Intrinsic.Control.End
+Program.Sub.frmSchedView_UnLoad.End
+
+Program.Sub.gsgcThisWk_RowCellClick.Start
+F.Intrinsic.Control.Try
+	v.Local.sJob.Declare
+	v.Local.sSfx.Declare
+	v.Local.sSOH.Declare
+	v.Local.sSOL.Declare
+	v.Local.sParams.Declare
+	
+	GUI.frmSchedView.gsgcThisWk.GetCellValueByColumnName("gvData","JOB",V.Args.RowIndex,v.Local.sJOB)
+	GUI.frmSchedView.gsgcThisWk.GetCellValueByColumnName("gvData","SFX",V.Args.RowIndex,v.Local.sSFX)
+	
+	f.Intrinsic.Control.SelectCase(v.Args.Column)
+		f.Intrinsic.Control.caseany("Job","Sfx")
+			f.Intrinsic.Control.If(v.Screen.frmSchedView!optEdit.Value,=,"True")
+				F.Intrinsic.String.Build("{0}!*!{1}!*!O",V.Local.sJob,V.Local.sSfx,V.Local.sParams)
+				F.Global.General.CallWrapperSync(2009,V.Local.sParams)
+				
+			f.Intrinsic.Control.ElseIf(v.Screen.frmSchedView!optView.Value,=,"True")
+				F.Intrinsic.String.Concat("7","!*!",V.Local.sJob,"!*!",V.Local.sSfx,"!*!","A",V.Local.sParams)
+				F.Global.General.CallWrapperSync(450000,V.Local.sParams)
+				
+			f.Intrinsic.Control.EndIf
+			
+		f.Intrinsic.Control.caseany("SALES_ORDER","SALES_ORDER_LINE")
+		
+			Gui.frmSchedView.gsgcThisWk.GetCellValueByColumnName("gvData","SALES_ORDER",V.Args.RowIndex,V.Local.sSOH)
+			Gui.frmSchedView.gsgcThisWk.GetCellValueByColumnName("gvData","SALES_ORDER_LINE",V.Args.RowIndex,V.Local.sSOL)
+			
+			F.Intrinsic.Control.If(V.Local.sSOH,<>,"0000000")	
+				F.Intrinsic.Control.If(V.Screen.frmSchedView!optEdit.Value,=,True)			
+						F.Intrinsic.String.ConcatCallWrapperArgs(V.Local.sSOH,"O","*!*ZDR*!*",V.Local.sParams)
+						F.Global.General.CallWrapperAsync(200000,V.Local.sParams)
+				f.Intrinsic.Control.Else
+					F.Intrinsic.String.ConcatCallWrapperArgs(V.Local.sSOH,"V","*!*ZDR*!*",V.Local.sParams)
+					F.Global.General.CallWrapperAsync(200000,V.Local.sParams)
+				F.Intrinsic.Control.EndIf
+			f.Intrinsic.Control.EndIf
+					
+	f.Intrinsic.Control.EndSelect
+F.Intrinsic.Control.Catch
+	F.Intrinsic.UI.Msgbox(V.Ambient.ErrorDescription)
+	F.Intrinsic.Control.CallSub(frmSchedView_UnLoad)
+F.Intrinsic.Control.EndTry
+Program.Sub.gsgcThisWk_RowCellClick.End
+
+Program.Sub.gsgcNextWk_RowCellClick.Start
+F.Intrinsic.Control.Try
+	v.Local.sJob.Declare
+	v.Local.sSfx.Declare
+	v.Local.sParams.Declare
+	
+	GUI.frmSchedView.gsgcNextWk.GetCellValueByColumnName("gvData2","JOB",V.Args.RowIndex,v.Local.sJOB)
+	GUI.frmSchedView.gsgcNextWk.GetCellValueByColumnName("gvData2","SFX",V.Args.RowIndex,v.Local.sSFX)
+	
+	f.Intrinsic.Control.SelectCase(v.Args.Column)
+		f.Intrinsic.Control.caseany("Job","Sfx")
+			f.Intrinsic.Control.If(v.Screen.frmSchedView!optEdit.Value,=,"True")
+				F.Intrinsic.String.Build("{0}!*!{1}!*!O",V.Local.sJob,V.Local.sSfx,V.Local.sParams)
+				F.Global.General.CallWrapperSync(2009,V.Local.sParams)
+				
+			f.Intrinsic.Control.ElseIf(v.Screen.frmSchedView!optView.Value,=,"True")
+				F.Intrinsic.String.Concat("7","!*!",V.Local.sJob,"!*!",V.Local.sSfx,"!*!","A",V.Local.sParams)
+				F.Global.General.CallWrapperSync(450000,V.Local.sParams)
+				
+			f.Intrinsic.Control.EndIf
+					
+	f.Intrinsic.Control.EndSelect
+F.Intrinsic.Control.Catch
+	F.Intrinsic.UI.Msgbox(V.Ambient.ErrorDescription)
+	F.Intrinsic.Control.CallSub(frmSchedView_UnLoad)
+F.Intrinsic.Control.EndTry
+Program.Sub.gsgcNextWk_RowCellClick.End
+
+Program.Sub.gsgcFollowWk_RowCellClick.Start
+F.Intrinsic.Control.Try
+	v.Local.sJob.Declare
+	v.Local.sSfx.Declare
+	v.Local.sParams.Declare
+	
+	GUI.frmSchedView.gsgcFollowWk.GetCellValueByColumnName("gvData3","JOB",V.Args.RowIndex,v.Local.sJOB)
+	GUI.frmSchedView.gsgcFollowWk.GetCellValueByColumnName("gvData3","SFX",V.Args.RowIndex,v.Local.sSFX)
+	
+	f.Intrinsic.Control.SelectCase(v.Args.Column)
+		f.Intrinsic.Control.caseany("Job","Sfx")
+			f.Intrinsic.Control.If(v.Screen.frmSchedView!optEdit.Value,=,"True")
+				F.Intrinsic.String.Build("{0}!*!{1}!*!O",V.Local.sJob,V.Local.sSfx,V.Local.sParams)
+				F.Global.General.CallWrapperSync(2009,V.Local.sParams)
+				
+			f.Intrinsic.Control.ElseIf(v.Screen.frmSchedView!optView.Value,=,"True")
+				F.Intrinsic.String.Concat("7","!*!",V.Local.sJob,"!*!",V.Local.sSfx,"!*!","A",V.Local.sParams)
+				F.Global.General.CallWrapperSync(450000,V.Local.sParams)
+				
+			f.Intrinsic.Control.EndIf
+					
+	f.Intrinsic.Control.EndSelect
+F.Intrinsic.Control.Catch
+	F.Intrinsic.UI.Msgbox(V.Ambient.ErrorDescription)
+	F.Intrinsic.Control.CallSub(frmSchedView_UnLoad)
+F.Intrinsic.Control.EndTry
+Program.Sub.gsgcFollowWk_RowCellClick.End
+
+Program.Sub.gsgcWeek4_RowCellClick.Start
+F.Intrinsic.Control.Try
+	v.Local.sJob.Declare
+	v.Local.sSfx.Declare
+	v.Local.sParams.Declare
+	
+	GUI.frmSchedView.gsgcWeek4.GetCellValueByColumnName("gvData4","JOB",V.Args.RowIndex,v.Local.sJOB)
+	GUI.frmSchedView.gsgcWeek4.GetCellValueByColumnName("gvData4","SFX",V.Args.RowIndex,v.Local.sSFX)
+	
+	f.Intrinsic.Control.SelectCase(v.Args.Column)
+		f.Intrinsic.Control.caseany("Job","Sfx")
+			f.Intrinsic.Control.If(v.Screen.frmSchedView!optEdit.Value,=,"True")
+				F.Intrinsic.String.Build("{0}!*!{1}!*!O",V.Local.sJob,V.Local.sSfx,V.Local.sParams)
+				F.Global.General.CallWrapperSync(2009,V.Local.sParams)
+				
+			f.Intrinsic.Control.ElseIf(v.Screen.frmSchedView!optView.Value,=,"True")
+				F.Intrinsic.String.Concat("7","!*!",V.Local.sJob,"!*!",V.Local.sSfx,"!*!","A",V.Local.sParams)
+				F.Global.General.CallWrapperSync(450000,V.Local.sParams)
+				
+			f.Intrinsic.Control.EndIf
+					
+	f.Intrinsic.Control.EndSelect
+F.Intrinsic.Control.Catch
+	F.Intrinsic.UI.Msgbox(V.Ambient.ErrorDescription)
+	F.Intrinsic.Control.CallSub(frmSchedView_UnLoad)
+F.Intrinsic.Control.EndTry
+Program.Sub.gsgcWeek4_RowCellClick.End
+
+Program.Sub.cmdProcess_Click.Start
+F.Intrinsic.Control.Try
+	'Disable form and create variables while data is loading
+	gui.frmSchedView..Enabled(false)
+	v.Local.sSql.Declare
+	V.Local.sWorkGroup.Declare
+	v.Local.sJSS.declare
+	v.Local.dDateBegin.Declare
+	v.Local.dDateEnd.Declare
+	v.Local.fSchedHours.Declare
+	V.Local.fTotalHours.Declare
+	v.Local.i.Declare
+	
+	'Set begin date and end date and workgroup
+	
+	v.Local.dDateBegin.Set(v.Screen.frmSchedView!dtp1.Value)
+	f.Intrinsic.Date.DateAdd("d",4,v.Local.dDateBegin,v.Local.dDateEnd)
+	f.Intrinsic.Control.CallSub(loadData,"BeginDate",v.Local.dDateBegin,"EndDate",v.Local.dDateEnd,"MyDataTable","dtData")
+	
+	'Next Week
+	f.Intrinsic.Date.DateAdd("d",7,v.Local.dDateBegin,v.Local.dDateBegin)
+	f.Intrinsic.Date.DateAdd("d",7,v.Local.dDateEnd,v.Local.dDateEnd)
+	f.Intrinsic.Control.CallSub(loadData,"BeginDate",v.Local.dDateBegin,"EndDate",v.Local.dDateEnd,"MyDataTable","dtData2")
+	
+	'Following Week
+	f.Intrinsic.Date.DateAdd("d",7,v.Local.dDateBegin,v.Local.dDateBegin)
+	f.Intrinsic.Date.DateAdd("d",7,v.Local.dDateEnd,v.Local.dDateEnd)
+	f.Intrinsic.Control.CallSub(loadData,"BeginDate",v.Local.dDateBegin,"EndDate",v.Local.dDateEnd,"MyDataTable","dtData3")
+	
+	'Week 4
+	f.Intrinsic.Date.DateAdd("d",7,v.Local.dDateBegin,v.Local.dDateBegin)
+	f.Intrinsic.Date.DateAdd("d",7,v.Local.dDateEnd,v.Local.dDateEnd)
+	f.Intrinsic.Control.CallSub(loadData,"BeginDate",v.Local.dDateBegin,"EndDate",v.Local.dDateEnd,"MyDataTable","dtData4")
+	
+	're-enable form
+	gui.frmSchedView..Enabled(true)
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.UI.Msgbox(V.Ambient.ErrorDescription)
+	F.Intrinsic.Control.CallSub(frmSchedView_UnLoad)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdProcess_Click.End
+
+Program.Sub.cmdBrowseWG_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sSQL.Declare
+	V.Local.sCol.Declare
+	V.Local.sColW.Declare
+	V.Local.sRet.Declare
+	V.Local.sSQL.set("SELECT WORK_GROUP, DESCR FROM V_WORKGROUP_HEAD")
+	'Split Column Names into an array (*!* delimited string)
+	F.Intrinsic.String.Split("WorkGroup*!*Description","*!*",V.Local.sCol)
+	'Split Column widths into an array (*!* delimited string)
+	F.Intrinsic.String.Split("450*!*3000","*!*",V.Local.sColW)
+	F.Intrinsic.UI.Browser("Select a Workgroup","con",V.Local.sSQL,V.Local.sCol,V.Local.sColW,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+		f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet)
+		gui.frmSchedView.txtWG.Text(v.Local.sRet(0))
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Catch
+	F.Intrinsic.UI.Msgbox(V.Ambient.ErrorDescription)
+	F.Intrinsic.Control.CallSub(frmSchedView_UnLoad)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdBrowseWG_Click.End
+
+Program.Sub.cmdWG2_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sSQL.Declare
+	V.Local.sCol.Declare
+	V.Local.sColW.Declare
+	V.Local.sRet.Declare
+	V.Local.sSQL.set("SELECT WORK_GROUP, DESCR FROM V_WORKGROUP_HEAD")
+	'Split Column Names into an array (*!* delimited string)
+	F.Intrinsic.String.Split("WorkGroup*!*Description","*!*",V.Local.sCol)
+	'Split Column widths into an array (*!* delimited string)
+	F.Intrinsic.String.Split("450*!*3000","*!*",V.Local.sColW)
+	F.Intrinsic.UI.Browser("Select a Workgroup","con",V.Local.sSQL,V.Local.sCol,V.Local.sColW,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+		f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet)
+		gui.frmSchedView.txtWG2.Text(v.Local.sRet(0))
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Catch
+	F.Intrinsic.UI.Msgbox(V.Ambient.ErrorDescription)
+	F.Intrinsic.Control.CallSub(frmSchedView_UnLoad)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdWG2_Click.End
+
+Program.Sub.cmdWG3_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sSQL.Declare
+	V.Local.sCol.Declare
+	V.Local.sColW.Declare
+	V.Local.sRet.Declare
+	V.Local.sSQL.set("SELECT WORK_GROUP, DESCR FROM V_WORKGROUP_HEAD")
+	'Split Column Names into an array (*!* delimited string)
+	F.Intrinsic.String.Split("WorkGroup*!*Description","*!*",V.Local.sCol)
+	'Split Column widths into an array (*!* delimited string)
+	F.Intrinsic.String.Split("450*!*3000","*!*",V.Local.sColW)
+	F.Intrinsic.UI.Browser("Select a Workgroup","con",V.Local.sSQL,V.Local.sCol,V.Local.sColW,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+		f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet)
+		gui.frmSchedView.txtWG3.Text(v.Local.sRet(0))
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Catch
+	F.Intrinsic.UI.Msgbox(V.Ambient.ErrorDescription)
+	F.Intrinsic.Control.CallSub(frmSchedView_UnLoad)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdWG3_Click.End
+
+Program.Sub.cmdWG4_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sSQL.Declare
+	V.Local.sCol.Declare
+	V.Local.sColW.Declare
+	V.Local.sRet.Declare
+	V.Local.sSQL.set("SELECT WORK_GROUP, DESCR FROM V_WORKGROUP_HEAD")
+	'Split Column Names into an array (*!* delimited string)
+	F.Intrinsic.String.Split("WorkGroup*!*Description","*!*",V.Local.sCol)
+	'Split Column widths into an array (*!* delimited string)
+	F.Intrinsic.String.Split("450*!*3000","*!*",V.Local.sColW)
+	F.Intrinsic.UI.Browser("Select a Workgroup","con",V.Local.sSQL,V.Local.sCol,V.Local.sColW,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+		f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet)
+		gui.frmSchedView.txtWG4.Text(v.Local.sRet(0))
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Catch
+	F.Intrinsic.UI.Msgbox(V.Ambient.ErrorDescription)
+	F.Intrinsic.Control.CallSub(frmSchedView_UnLoad)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdWG4_Click.End
+
+Program.Sub.cmdExport_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sFileExport.Declare
+	V.Local.bExcel.Declare
+	V.Local.bFileLocked.Declare
+	V.Local.sMsg.Declare
+	V.Local.sControl.Declare
+	v.Local.sTimeStamp.Declare
+	f.Intrinsic.String.Format(v.Ambient.Now,"YYYYMMDDHHNNSS",v.Local.sTimeStamp)
+
+	F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+	F.Intrinsic.Control.If(V.Local.bExcel)
+		F.Intrinsic.String.Build("{0}\GAB_6766_{1}_{2}_Export.xlsx",V.Caller.LocalGssTempDir,"ThisWeek",v.local.sTimeStamp,V.Local.sFileExport)
+		gui.frmSchedView.gsgcThisWk.Export(v.Local.sFileExport,"xlsx")
+		F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+			
+		F.Intrinsic.String.Build("{0}\GAB_6766_{1}_{2}_Export.xlsx",V.Caller.LocalGssTempDir,"NextWeek",v.local.sTimeStamp,V.Local.sFileExport)
+		gui.frmSchedView.gsgcNextWk.Export(v.Local.sFileExport,"xlsx")
+		F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+		
+		F.Intrinsic.String.Build("{0}\GAB_6766_{1}_{2}_Export.xlsx",V.Caller.LocalGssTempDir,"FollowWeek",v.local.sTimeStamp,V.Local.sFileExport)
+		gui.frmSchedView.gsgcFollowWk.Export(v.Local.sFileExport,"xlsx")
+		F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+			
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("{0}\GAB_6766_{1}_{2}_Export.csv",V.Caller.LocalGssTempDir,"ThisWeek",v.local.sTimeStamp,V.Local.sFileExport)
+		gui.frmSchedView.gsgcThisWk.Export(v.Local.sFileExport,"csv")
+		F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+			
+		F.Intrinsic.String.Build("{0}\GAB_6766_{1}_{2}_Export.csv",V.Caller.LocalGssTempDir,"NextWeek",v.local.sTimeStamp,V.Local.sFileExport)
+		gui.frmSchedView.gsgcNextWk.Export(v.Local.sFileExport,"csv")
+		F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+		
+		F.Intrinsic.String.Build("{0}\GAB_6766_{1}_{2}_Export.csv",V.Caller.LocalGssTempDir,"FollowWeek",v.local.sTimeStamp,V.Local.sFileExport)
+		gui.frmSchedView.gsgcFollowWk.Export(v.Local.sFileExport,"csv")
+		F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.UI.Msgbox(V.Ambient.ErrorDescription)
+		F.Intrinsic.Control.CallSub(frmSchedView_UnLoad)
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdExport_Click.End
+
+Program.Sub.Comments.Start
+${$5$}$2.0.0.0$}$2
+${$6$}$Ryan$}$20220607093706631$}$zT7b+sV1eISPUtInNavz/tarlNAripJk7VRhehyJLhm+N7/NqPhpUESqPEO4bUXzxX53Khp68ck=
+Program.Sub.Comments.End
